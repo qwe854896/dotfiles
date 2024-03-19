@@ -1,5 +1,3 @@
-{{- if ( and ( ne .chezmoi.hostname "Jun-Hongs-MacBook-Air" ) ( ne .chezmoi.hostname "DESKTOP-18AG991" ) ) }}
 {{ range gitHubKeys "qwe854896" -}}
 {{   .Key }}
 {{ end -}}
-{{- end }}
