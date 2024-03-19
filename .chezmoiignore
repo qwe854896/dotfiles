@@ -17,4 +17,6 @@ AppData
 
 {{- if eq .chezmoi.os "windows" }}
 .config/nvim
+.chezmoiscripts/10-setup-fish.sh
+.chezmoiscripts/10-setup-fish.fish
 {{- end}}
