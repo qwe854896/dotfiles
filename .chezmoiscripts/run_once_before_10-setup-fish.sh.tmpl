@@ -42,5 +42,27 @@ if [ $SHELL != $(which fish) ]; then
 fi
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up Fish Shell <<<<<\033[0m"
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -eufo pipefail
+
+echo -e "\0033[0;32m>>>>> Begin Setting Up Fish Shell <<<<<\033[0m"
+
+# Installing fish
+if ! $(brew list | grep fish &> /dev/null); then
+  echo "installing fish"
+  brew install fish
+fi
+
+# Set fish as default shell
+if [ $SHELL != $(which fish) ]; then
+  echo "Changing default shell to fish"
+  if ! $(grep -q $(which fish) /etc/shells); then
+    echo $(which fish) | sudo tee -a /etc/shells
+  fi
+  chsh -s $(which fish)
+fi
+
+echo -e "\0033[0;32m>>>>> Finish Setting Up Fish Shell <<<<<\033[0m"
 {{ end -}}
 
