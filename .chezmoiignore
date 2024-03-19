@@ -3,10 +3,14 @@ install.sh
 LICENSE
 README.md
 
-{{- if ne .chezmoi.hostname "Jun-Hongs-MacBook-Air" }}
+{{- if eq .chezmoi.hostname "Jun-Hongs-MacBook-Air" }}
 .ssh/authorized_keys
 {{- end }}
 
-{{- if ne .chezmoi.hostname "DESKTOP-18AG991" }}
+{{- if eq .chezmoi.hostname "DESKTOP-18AG991" }}
 .ssh/authorized_keys
 {{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+AppData
+{{- end}}
