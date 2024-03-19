@@ -7,7 +7,7 @@ echo -e "\033[0;32m>>>>> Begin Setting Up Ubuntu Packages <<<<<\033[0m"
 
 # List of ppa repositories to add
 repositories=(
-  ppa:neovim-ppa/stable
+  ppa:neovim-ppa/unstable
   ppa:git-core/ppa
 )
 
@@ -23,11 +23,6 @@ packages=(
 # List of snap packages to install
 snaps=()
 
-{{ if (not .headless) -}}
-packages+=(
-)
-{{ end -}}
-
 for repository in ${repositories[@]}; do
   ppa_repo_source=${repository#ppa:}
   if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
@@ -41,8 +36,14 @@ for repository in ${repositories[@]}; do
   fi
 done
 
+{{ if ne .chezmoi.username "root" -}}
+    sudo apt update
+{{ else -}}
+    apt update
+{{ end -}}
+
 for package in ${packages[@]}; do
-  if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
+  if ! $(dpkg-query -W -f='${Status}' $package 2> /dev/null | grep -q "install ok installed"); then
     echo "installing $package"
 {{ if ne .chezmoi.username "root" -}}
     sudo apt install -y $package
