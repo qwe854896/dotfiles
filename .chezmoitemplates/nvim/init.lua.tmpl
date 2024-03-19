@@ -1,0 +1,43 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- Set the lazypath variable to the path of the lazy.nvim plugin
+if not vim.loop.fs_stat(lazypath) then -- Check if the lazypath file exists
+  vim.fn.system({ -- Clone the lazy.nvim repository if the file doesn't exist
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- Clone the latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath) -- Prepend the lazypath to the runtimepath option
+
+vim.g.mapleader = " " -- Set the mapleader to a space character
+vim.g.maplocalleader = "\\" -- Set the maplocalleader to a backslash character
+
+require("lazy").setup({ -- Load the lazy.nvim plugin and other plugins
+  "folke/which-key.nvim",
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  "folke/neodev.nvim",
+  "ThePrimeagen/vim-be-good",
+  {
+    "nvim-telescope/telescope.nvim", tag = '0.1.6',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  "github/copilot.vim",
+})
+
+
+vim.opt.clipboard = "unnamedplus" -- Set clipboard option to "unnamedplus"
+
+
+if vim.g.vscode then
+  -- VSCode Specific Settings
+else
+  -- Ordinary Settings
+  vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+  vim.keymap.set("n", "<C-d>", "<C-d>zz")
+  vim.keymap.set("n", "<C-u>", "<C-u>zz")
+  vim.keymap.set("n", "n", "nzzzv")
+  vim.keymap.set("n", "N", "Nzzzv")
+end
+
