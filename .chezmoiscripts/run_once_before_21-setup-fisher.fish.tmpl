@@ -1,3 +1,4 @@
+{{ if (ne .chezmoi.os "windows") -}}
 #!/usr/bin/env fish
 
 echo -e "\033[0;32m>>>>> Begin Setting Up Fisher <<<<<\033[0m"
@@ -9,3 +10,4 @@ if not type -q fisher
 end
 
 echo -e "\033[0;32m>>>>> Finish Setting Up Fisher <<<<<\033[0m"
+{{ end -}}

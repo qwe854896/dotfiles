@@ -6,13 +6,13 @@ packages:
     - 'ppa:neovim-ppa/unstable'
     packages:
     - 'git'
-    - 'curl'
     - 'fish'
     - 'neovim'
     snaps:
   windows:
-    choco:
-    - 'git'
+    scoops:
+    - 'neovim'
   darwin:
     brews:
-    - 'git'
+    - 'fish'
+    - 'neovim'
