@@ -1,0 +1,35 @@
+local lazypath = vim.fn.stdpath("data") ..
+		"/lazy/lazy.nvim"                  -- Set the lazypath variable to the path of the lazy.nvim plugin
+if not vim.loop.fs_stat(lazypath) then -- Check if the lazypath file exists
+	vim.fn.system({                      -- Clone the lazy.nvim repository if the file doesn't exist
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- Clone the latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath) -- Prepend the lazypath to the runtimepath option
+
+vim.g.mapleader = " "         -- Set the mapleader to a space character
+vim.g.maplocalleader = "\\"   -- Set the maplocalleader to a backslash character
+
+require('lazy').setup('user.plugins')
+require('user.keymaps')
+
+if vim.g.vscode then
+	require('user.vscode')
+end
+
+vim.opt.clipboard = "unnamedplus" -- Set clipboard option to "unnamedplus"
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		-- use 2 spaces for indentation
+		vim.bo.shiftwidth = 2
+		vim.bo.tabstop = 2
+		vim.bo.softtabstop = 2
+	end,
+})
