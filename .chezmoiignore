@@ -3,11 +3,7 @@ install.sh
 LICENSE
 README.md
 
-{{- if eq .chezmoi.hostname "Jun-Hongs-MacBook-Air" }}
-.ssh/authorized_keys
-{{- end }}
-
-{{- if eq .chezmoi.hostname "DESKTOP-18AG991" }}
+{{- if or (eq .chezmoi.hostname "Jun-Hongs-MacBook-Air") (eq .chezmoi.hostname "DESKTOP-18AG991") }}
 .ssh/authorized_keys
 {{- end }}
 
@@ -17,6 +13,4 @@ AppData
 
 {{- if eq .chezmoi.os "windows" }}
 .config/nvim
-.chezmoiscripts/10-setup-fish.sh
-.chezmoiscripts/10-setup-fish.fish
 {{- end}}

@@ -1,62 +1,8 @@
-{{ if (eq .chezmoi.os "linux") -}}
+{{ if (ne .chezmoi.os "windows") -}}
 #!/usr/bin/env bash
 set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Setting Up Fish Shell <<<<<\033[0m"
-
-# Installing fish
-{{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
-ppa_repo_source=fish-shell/release-3
-if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
-  echo "adding ppa:$ppa_repo_source repository to apt"
-{{     if ne .chezmoi.username "root" -}}
-  sudo apt update
-  sudo apt install software-properties-common -y
-  sudo add-apt-repository -y ppa:$ppa_repo_source
-{{     else -}}
-  apt update
-  apt install software-properties-common -y
-  add-apt-repository -y ppa:$ppa_repo_source
-{{     end -}}
-fi
-if ! $(dpkg-query -W -f='installed' fish &> /dev/null); then
-  echo "installing fish"
-{{     if ne .chezmoi.username "root" -}}
-  sudo apt install -y fish
-{{     else -}}
-  apt install -y fish
-{{     end -}}
-fi
-
-{{   else if eq .chezmoi.osRelease.id "arch" -}}
-if [ "$(pacman -Qq fish 2> /dev/null)" != fish ]; then
-  echo "installing fish"
-{{     if ne .chezmoi.username "root" -}}
-  sudo pacman -S --noconfirm fish
-{{     else -}}
-  pacman -S --noconfirm fish
-{{     end -}}
-fi
-{{   end -}}
-
-# Set fish as default shell
-if [ $SHELL != $(which fish) ]; then
-  echo "Changing default shell to fish"
-  chsh -s $(which fish)
-fi
-
-echo -e "\0033[0;32m>>>>> Finish Setting Up Fish Shell <<<<<\033[0m"
-{{ else if eq .chezmoi.os "darwin" -}}
-#!/usr/bin/env bash
-set -eufo pipefail
-
-echo -e "\0033[0;32m>>>>> Begin Setting Up Fish Shell <<<<<\033[0m"
-
-# Installing fish
-if ! $(brew list | grep fish &> /dev/null); then
-  echo "installing fish"
-  brew install fish
-fi
 
 # Set fish as default shell
 if [ $SHELL != $(which fish) ]; then
@@ -69,4 +15,3 @@ fi
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up Fish Shell <<<<<\033[0m"
 {{ end -}}
-

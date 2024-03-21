@@ -1,7 +1,18 @@
 packages:
+  ubuntu:
+    repositories:
+    - 'ppa:git-core/ppa'
+    - 'ppa:fish-shell/release-3'
+    - 'ppa:neovim-ppa/unstable'
+    packages:
+    - 'curl'
+    - 'git'
+    - 'fish'
+    - 'neovim'
+    snaps:
+  windows:
+    choco:
+    - 'git'
   darwin:
     brews:
     - 'git'
-    casks:
-    - 'google-chrome'
-  

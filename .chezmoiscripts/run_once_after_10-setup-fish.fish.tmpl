@@ -1,13 +1,13 @@
 #!/usr/bin/env fish
 
-echo -e "\033[0;32m>>>>> Begin Setting Up Fish shell <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Begin Setting Up Fisher <<<<<\033[0m"
 
 ## Install fisher
 if not type -q fisher
   echo "installing fisher"
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-  # `.config/fish/fish` will be replaced with the new one.
+  # Re-apply fish_plugins because the file is flushed when fisher is installed
   chezmoi apply ~/.config/fish/fish_plugins
 end
 
@@ -15,4 +15,4 @@ end
 # .config/fish/fish_plugins hash: {{ include "dot_config/private_fish/fish_plugins.tmpl" | sha256sum }}
 fisher update
 
-echo -e "\033[0;32m>>>>> Finish Setting Up Fish shell <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Finish Setting Up Fisher <<<<<\033[0m"
