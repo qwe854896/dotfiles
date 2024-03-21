@@ -5,8 +5,8 @@ packages:
     - 'ppa:fish-shell/release-3'
     - 'ppa:neovim-ppa/unstable'
     packages:
-    - 'curl'
     - 'git'
+    - 'curl'
     - 'fish'
     - 'neovim'
     snaps:
