@@ -33,9 +33,9 @@ apt upgrade -y
 if ! $(dpkg-query -W -f='${Status}' software-properties-common 2> /dev/null | grep -q "install ok installed"); then
 	echo "installing software-properties-common"
 {{ if ne .chezmoi.username "root" }}
-  sudo apt install -y software-properties-common
+  sudo apt install -y software-properties-common locales
 {{ else }}
-  apt install -y software-properties-common
+  apt install -y software-properties-common locales
 {{ end }}
 fi
 
@@ -78,6 +78,16 @@ for snap in ${snaps[@]}; do
 {{   end }}
 done
 {{ end -}}
+
+# Generate and set the locale
+{{ if ne .chezmoi.username "root" -}}
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8
+{{ else -}}
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+{{ end -}}
+
 
 echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"
 {{ end -}}

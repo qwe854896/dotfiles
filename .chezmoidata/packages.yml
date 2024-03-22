@@ -1,6 +1,5 @@
 packages:
   versioned:
-    - 'locales'
     - 'git'
     - 'fish'
     - 'nvim'
