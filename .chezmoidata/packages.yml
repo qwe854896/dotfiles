@@ -36,6 +36,8 @@ packages:
     - 'ripgrep'
     - 'fswatch'
     - 'fd'
+    casks:
+    - 'iterm2'
   nodes:
     - 'neovim'
     - 'yarn'
