@@ -21,6 +21,8 @@ packages:
     - 'build-essential'
     - 'python3.12'
     - 'ripgrep'
+    - 'fswatch'
+    - 'fd-find'
     snaps:
   windows:
     scoops:
