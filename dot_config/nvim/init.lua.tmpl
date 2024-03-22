@@ -22,7 +22,9 @@ if vim.g.vscode then
 	require('user.vscode')
 end
 
-{{- if ne .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
+vim.opt.shell = "pwsh"
+{{- else }}
 vim.opt.shell = "fish"
 {{- end}}
 
