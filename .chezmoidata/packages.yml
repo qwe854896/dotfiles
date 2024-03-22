@@ -9,6 +9,7 @@ packages:
     - 'fish'
     - 'neovim'
     - 'build-essential'
+    - 'ripgrep'
     snaps:
   windows:
     scoops:
