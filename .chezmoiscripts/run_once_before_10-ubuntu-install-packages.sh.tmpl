@@ -20,6 +20,15 @@ packages+=({{ . | quote }})
 snaps+=({{ . | quote }})
 {{ end }}
 
+# Locale settings
+{{ if ne .chezmoi.username "root" -}}
+sudo locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+{{ else -}}
+locale-gen en_US.UTF-8
+dpkg-reconfigure locales
+{{ end -}}
+
 # update apt to get software-properties-common
 {{ if ne .chezmoi.username "root" -}}
 sudo apt update
