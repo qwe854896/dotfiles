@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.os "darwin" -}}
+echo -e "\033[0;32m>>>>> Begin Setting Up MacOS Packages <<<<<\033[0m"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
+echo -e "\033[0;32m>>>>> End Setting Up MacOS Packages <<<<<\033[0m"
+{{ end -}}

@@ -1,5 +1,6 @@
 packages:
   versioned:
+    - 'locales'
     - 'git'
     - 'fish'
     - 'nvim'
@@ -14,6 +15,8 @@ packages:
     - 'ppa:deadsnakes/ppa'
     packages:
     - 'git'
+    - 'tmux'
+    - 'make'
     - 'fish'
     - 'neovim'
     - 'build-essential'
@@ -23,7 +26,10 @@ packages:
   windows:
     scoops:
     - 'neovim'
+    - 'ripgrep'
   darwin:
     brews:
+    - 'tmux'
     - 'fish'
     - 'neovim'
+    - 'ripgrep'
