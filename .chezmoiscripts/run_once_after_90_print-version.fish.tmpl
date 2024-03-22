@@ -1,0 +1,15 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env fish
+
+echo -e "\033[0;32m>>>>> Begin Print Version <<<<<\033[0m"
+
+fish --version
+nvim --version
+gcc --version
+g++ --version
+python3 --version
+nvm --version
+npm --version
+
+echo -e "\033[0;32m>>>>> End Print Version <<<<<\033[0m"
+{{ end -}}
