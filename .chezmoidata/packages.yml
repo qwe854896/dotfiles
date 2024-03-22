@@ -37,7 +37,6 @@ packages:
     - 'fswatch'
     - 'fd'
     casks:
-    - 'iterm2'
   nodes:
     - 'neovim'
     - 'yarn'
