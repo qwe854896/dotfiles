@@ -6,9 +6,8 @@ echo -e "\033[0;32m>>>>> Begin Setting Fish Variables <<<<<\033[0m"
 set -Ux LC_ALL en_US.UTF-8
 set -Ux LANG en_US.UTF-8
 
-set --universal nvm_default_version lts
-set node_packages {{ range .packages.nodes }}{{ . }} {{ end }}
-set --universal nvm_default_packages $node_packages
+set -U nvm_default_packages {{ range .packages.nodes }}{{ . }} {{ end }}
+set -U nvm_default_version lts
 nvm install lts
 
 echo -e "\033[0;32m>>>>> Finish Setting Fish Variables <<<<<\033[0m"
