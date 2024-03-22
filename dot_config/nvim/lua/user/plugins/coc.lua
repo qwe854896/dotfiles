@@ -4,16 +4,15 @@ local M = {
 	build = "yarn install --frozen-lockfile",
 }
 
-M.setup = function()
+M.config = function()
+	-- Set up default extensions
 	vim.g.coc_global_extensions = {
 		"coc-json",
 		"coc-yaml",
 		"coc-markdownlint",
 		"coc-sumneko-lua",
 	}
-end
 
-M.config = function()
 	-- Some servers have issues with backup files, see #649
 	vim.opt.backup = false
 	vim.opt.writebackup = false
