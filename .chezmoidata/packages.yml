@@ -8,6 +8,7 @@ packages:
     - 'git'
     - 'fish'
     - 'neovim'
+    - 'build-essential'
     snaps:
   windows:
     scoops:

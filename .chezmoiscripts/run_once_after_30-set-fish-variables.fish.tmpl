@@ -1,0 +1,10 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env fish
+
+echo -e "\033[0;32m>>>>> Begin Setting Fish Variables <<<<<\033[0m"
+
+nvm install lts
+set --universal nvm_default_version lts
+
+echo -e "\033[0;32m>>>>> Finish Setting Fish Variables <<<<<\033[0m"
+{{ end -}}

@@ -22,8 +22,10 @@ snaps+=({{ . | quote }})
 # update apt to get software-properties-common
 {{ if ne .chezmoi.username "root" -}}
 sudo apt update
+sudo apt upgrade -y
 {{ else -}}
 apt update
+apt upgrade -y
 {{ end -}}
 
 # if add-apt-repository is not installed, install it
