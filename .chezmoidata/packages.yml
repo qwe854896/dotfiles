@@ -4,11 +4,13 @@ packages:
     - 'ppa:git-core/ppa'
     - 'ppa:fish-shell/release-3'
     - 'ppa:neovim-ppa/unstable'
+    - 'ppa:deadsnakes/ppa'
     packages:
     - 'git'
     - 'fish'
     - 'neovim'
     - 'build-essential'
+    - 'python3.12'
     - 'ripgrep'
     snaps:
   windows:
