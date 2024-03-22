@@ -22,7 +22,10 @@ if vim.g.vscode then
 	require('user.vscode')
 end
 
+{{- if ne .chezmoi.os "windows" }}
 vim.opt.shell = "fish"
+{{- end}}
+
 vim.opt.clipboard = "unnamedplus" -- Set clipboard option to "unnamedplus"
 
 vim.api.nvim_create_autocmd("FileType", {
