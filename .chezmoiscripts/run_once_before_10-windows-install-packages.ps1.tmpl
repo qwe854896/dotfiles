@@ -1,14 +1,10 @@
 {{ if eq .chezmoi.os "windows" -}}
-echo -e "\033[0;32m>>>>> Begin Setting Up MacOS Packages <<<<<\033[0m"
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .packages.darwin.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-EOF
+$escape = [char]0x1B
+echo "$escape[0;32m>>>>> Begin Setting Up Windows Packages <<<<<$escape[0m"
 
-echo -e "\033[0;32m>>>>> End Setting Up MacOS Packages <<<<<\033[0m"
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+echo "$escape[0;32m>>>>> End Setting Up Windows Packages <<<<<$escape[0m"
 {{ end -}}
