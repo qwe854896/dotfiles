@@ -34,3 +34,7 @@ packages:
     - 'fish'
     - 'neovim'
     - 'ripgrep'
+  nodes:
+    - 'neovim'
+    - 'yarn'
+    - 'tree-sitter-cli'
