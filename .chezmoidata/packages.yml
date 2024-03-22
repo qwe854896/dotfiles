@@ -1,4 +1,13 @@
 packages:
+  versioned:
+    - 'git'
+    - 'fish'
+    - 'nvim'
+    - 'rg'
+    - 'gcc'
+    - 'g++'
+    - 'nvm'
+    - 'node'
   ubuntu:
     repositories:
     - 'ppa:git-core/ppa'

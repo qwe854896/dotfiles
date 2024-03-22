@@ -3,13 +3,11 @@
 
 echo -e "\033[0;32m>>>>> Begin Print Version <<<<<\033[0m"
 
-fish --version
-nvim --version
-gcc --version
-g++ --version
-python3 --version
-nvm --version
-npm --version
+{{ range .packages.versioned -}}
+echo -e "\033[0;32m{{ . }} Version:\033[0m"
+{{ . }} --version
+echo
+{{ end -}}
 
 echo -e "\033[0;32m>>>>> End Print Version <<<<<\033[0m"
 {{ end -}}
