@@ -1,0 +1,49 @@
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" "ubuntu")) -}}
+#!/usr/bin/env bash
+
+export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
+set -eufo pipefail
+
+echo -e "\033[0;32m>>>>> Begin Setting Up Ubuntu Packages <<<<<\033[0m"
+
+# update apt to get software-properties-common
+{{ if ne .chezmoi.username "root" -}}
+sudo apt update
+sudo apt upgrade -y
+{{ else -}}
+apt update
+apt upgrade -y
+{{ end -}}
+
+# if add-apt-repository is not installed, install it
+if ! $(dpkg-query -W -f='${Status}' software-properties-common 2> /dev/null | grep -q "install ok installed"); then
+	echo "installing software-properties-common"
+{{ if ne .chezmoi.username "root" }}
+  sudo apt install -y software-properties-common
+{{ else }}
+  apt install -y software-properties-common
+{{ end }}
+fi
+
+# if locales is not installed, install it
+if ! $(dpkg-query -W -f='${Status}' locales 2> /dev/null | grep -q "install ok installed"); then
+	echo "installing locales"
+{{ if ne .chezmoi.username "root" }}
+	sudo apt install -y locales
+{{ else }}
+	apt install -y locales
+{{ end }}
+fi
+
+# Generate and set the locale
+{{ if ne .chezmoi.username "root" -}}
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8
+{{ else -}}
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+{{ end -}}
+
+
+echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"
+{{ end -}}
