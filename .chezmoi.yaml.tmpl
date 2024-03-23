@@ -28,3 +28,8 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+
+{{ if eq .chezmoi.os "windows" -}}
+cd:
+  command: pwsh.exe
+{{- end -}}

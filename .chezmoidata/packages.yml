@@ -25,9 +25,17 @@ packages:
     - 'fd-find'
     snaps:
   windows:
+    wingets:
+    - 'CoreyButler.NVMforWindows'
+    chocos:
+    - 'llvm'
+    buckets:
+    - 'main'
     scoops:
+    - 'make'
     - 'neovim'
     - 'ripgrep'
+    - 'fd'
   darwin:
     brews:
     - 'tmux'
