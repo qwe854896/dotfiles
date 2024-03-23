@@ -26,6 +26,7 @@ packages:
     - 'ripgrep'
     - 'fswatch'
     - 'fd-find'
+    - 'xclip'
     snaps:
   darwin:
     brews:
