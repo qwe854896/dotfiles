@@ -11,6 +11,7 @@ M.config = function()
 		"coc-yaml",
 		"coc-markdownlint",
 		"coc-sumneko-lua",
+		"coc-prettier",
 	}
 
 	-- Some servers have issues with backup files, see #649
