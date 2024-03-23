@@ -37,6 +37,7 @@ packages:
     - 'fswatch'
     - 'fd'
     casks:
+    - 'xquartz'
   windows:
     wingets:
     - 'CoreyButler.NVMforWindows'
