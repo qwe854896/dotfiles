@@ -6,6 +6,10 @@ packages:
     - 'gcc'
     - 'g++'
     - 'nvm'
+  nodes:
+    - 'neovim'
+    - 'yarn'
+    - 'tree-sitter-cli'
   ubuntu:
     repositories:
     - 'ppa:git-core/ppa'
@@ -19,11 +23,19 @@ packages:
     - 'fish'
     - 'neovim'
     - 'build-essential'
-    - 'python3.12'
     - 'ripgrep'
     - 'fswatch'
     - 'fd-find'
     snaps:
+  darwin:
+    brews:
+    - 'tmux'
+    - 'fish'
+    - 'neovim'
+    - 'ripgrep'
+    - 'fswatch'
+    - 'fd'
+    casks:
   windows:
     wingets:
     - 'CoreyButler.NVMforWindows'
@@ -36,16 +48,3 @@ packages:
     - 'neovim'
     - 'ripgrep'
     - 'fd'
-  darwin:
-    brews:
-    - 'tmux'
-    - 'fish'
-    - 'neovim'
-    - 'ripgrep'
-    - 'fswatch'
-    - 'fd'
-    casks:
-  nodes:
-    - 'neovim'
-    - 'yarn'
-    - 'tree-sitter-cli'
