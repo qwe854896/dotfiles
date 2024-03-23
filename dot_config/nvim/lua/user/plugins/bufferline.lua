@@ -7,44 +7,34 @@ local M =
 
 M.config = function()
 	local bufferline = require('bufferline')
-	-- lighten up bufferline background
 	bufferline.setup(
 		{
 			options = {
-				active = true,
-				options = {
-					separator_style = "slant",
+				mode = "normal",
+				separator_style = "slant",
+				always_show_bufferline = false,
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+				color_icons = true,
+			},
+			highlights = {
+				separator = {
+					guifg = "#073642",
+					guibg = "#002b36",
 				},
-				highlights = {
-					fill = {
-						bg = "#252d52",
-					},
-
-					separator_selected = {
-						fg = "#252d52",
-					},
-
-					separator_visible = {
-						fg = "#252d52",
-					},
-
-					separator = {
-						fg = "#252d52",
-					},
-
-					buffer_visible = {
-						fg = "#9696ca",
-						bold = false,
-					},
-
-					buffer_selected = {
-						fg = "#eeeeee",
-						bold = false,
-					},
-
-					tab_selected = {
-						bold = false,
-					},
+				separator_selected = {
+					guifg = "#073642",
+				},
+				background = {
+					guifg = "#657b83",
+					guibg = "#002b36",
+				},
+				buffer_selected = {
+					guifg = "#fdf6e3",
+					gui = "bold",
+				},
+				fill = {
+					guibg = "#073642",
 				},
 			},
 		}
