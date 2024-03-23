@@ -4,7 +4,7 @@
 export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 set -eufo pipefail
 
-echo -e "\033[0;32m>>>>> Begin Setting Up Ubuntu Packages <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Begin Pre-Install Ubuntu Packages <<<<<\033[0m"
 
 # update apt to get software-properties-common
 {{ if ne .chezmoi.username "root" -}}
@@ -45,5 +45,5 @@ update-locale LANG=en_US.UTF-8
 {{ end -}}
 
 
-echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Finish Pre-Install Ubuntu Packages <<<<<\033[0m"
 {{ end -}}
