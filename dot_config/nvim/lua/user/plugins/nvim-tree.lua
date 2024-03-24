@@ -7,7 +7,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup({
+			require("nvim-tree").setup {
 				disable_netrw = true,
 				hijack_netrw = true,
 				update_focused_file = {
@@ -17,7 +17,7 @@ return {
 				view = {
 					width = 30,
 				},
-			})
+			}
 
 			-- Keymaps
 			local keyset = vim.keymap.set

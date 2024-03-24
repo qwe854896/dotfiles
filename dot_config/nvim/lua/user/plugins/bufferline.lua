@@ -7,22 +7,20 @@ local M =
 
 M.config = function()
 	vim.opt.termguicolors = true
-	require('bufferline').setup(
-		{
-			options = {
-				diagnostics = "coc",
-				offsets = {
-					{
-						filetype = "NvimTree",
-						text = "",
-					},
+	require('bufferline').setup {
+		options = {
+			diagnostics = "coc",
+			offsets = {
+				{
+					filetype = "NvimTree",
+					text = "",
 				},
-				separator_style = "slant",
-				always_show_bufferline = true,
-				color_icons = true,
 			},
-		}
-	)
+			separator_style = "slant",
+			always_show_bufferline = true,
+			color_icons = true,
+		},
+	}
 
 	-- since we open empty splits - clean them up as we cycle through open buffers
 	function ChangeTab(motion)
