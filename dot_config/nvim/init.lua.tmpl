@@ -28,8 +28,6 @@ vim.opt.shell = "pwsh"
 vim.opt.shell = "fish"
 {{- end}}
 
-vim.opt.termguicolors = true
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()

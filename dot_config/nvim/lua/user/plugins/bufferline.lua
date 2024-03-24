@@ -6,43 +6,23 @@ local M =
 }
 
 M.config = function()
-	local bufferline = require('bufferline')
-	bufferline.setup(
+	vim.opt.termguicolors = true
+	require('bufferline').setup(
 		{
 			options = {
-				mode = "normal",
+				diagnostics = "coc",
+				offsets = {
+					{
+						filetype = "NvimTree",
+						text = "",
+					},
+				},
 				separator_style = "slant",
-				always_show_bufferline = false,
-				show_buffer_close_icons = false,
-				show_close_icon = false,
+				always_show_bufferline = true,
 				color_icons = true,
 			},
-			-- highlights = {
-			-- 	separator = {
-			-- 		guifg = "#073642",
-			-- 		guibg = "#002b36",
-			-- 	},
-			-- 	separator_selected = {
-			-- 		guifg = "#073642",
-			-- 	},
-			-- 	background = {
-			-- 		guifg = "#657b83",
-			-- 		guibg = "#002b36",
-			-- 	},
-			-- 	buffer_selected = {
-			-- 		guifg = "#fdf6e3",
-			-- 		gui = "bold",
-			-- 	},
-			-- 	fill = {
-			-- 		guibg = "#073642",
-			-- 	},
-			-- },
 		}
 	)
-
-	-- open empty splits
-	vim.api.nvim_set_keymap("n", "<leader>|", "<CMD>vsplit +enew<CR>", {})
-	vim.api.nvim_set_keymap("n", "<leader>_", "<CMD>split +enew<CR>", {})
 
 	-- since we open empty splits - clean them up as we cycle through open buffers
 	function ChangeTab(motion)
@@ -66,6 +46,12 @@ M.config = function()
 	-- switch through visible buffers with shift-l/h
 	vim.api.nvim_set_keymap("n", "<S-l>", "<CMD>lua ChangeTab('next')<CR>", {})
 	vim.api.nvim_set_keymap("n", "<S-h>", "<CMD>lua ChangeTab('prev')<CR>", {})
+
+	-- switch through pressing <leader><ordinal>
+	for i = 1, 9 do
+		vim.api.nvim_set_keymap("n", "<leader>" .. i, "<CMD> lua require(\"bufferline\").go_to_buffer(" .. i .. ", true)<CR>",
+			{ silent = true })
+	end
 end
 
 return M

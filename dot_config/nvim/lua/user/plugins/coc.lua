@@ -7,6 +7,7 @@ local M = {
 M.config = function()
 	-- Set up default extensions
 	vim.g.coc_global_extensions = {
+		"coc-clangd",
 		"coc-json",
 		"coc-yaml",
 		"coc-markdownlint",
