@@ -29,6 +29,12 @@ return {
 					},
 				},
 			}
+
+			local keyset = vim.keymap.set
+			keyset("n", "<leader>ff", "<CMD>lua require('telescope.builtin').find_files()<CR>", { silent = true })
+			keyset("n", "<leader>fg", "<CMD>lua require('telescope.builtin').live_grep()<CR>", { silent = true })
+			keyset("n", "<leader>fb", "<CMD>lua require('telescope.builtin').buffers()<CR>", { silent = true })
+			keyset("n", "<leader>fh", "<CMD>lua require('telescope.builtin').help_tags()<CR>", { silent = true })
 		end,
 	},
 }
