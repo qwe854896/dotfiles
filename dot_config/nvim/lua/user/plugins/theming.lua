@@ -7,18 +7,18 @@ return {
 			require("tokyonight").setup(
 				{
 					style = "night",
-					terminal_colors = true,
 					styles = {
-						comments = { italic = true },
-						keywords = { italic = true },
-						functions = {},
-						variables = {},
+						comments = { italic = false },
+						keywords = { italic = false },
+						functions = { italic = false },
+						variables = { italic = false },
 						sidebars = "dark",
 						floats = "dark",
 					},
-					lualine_bold = true,
+				  lualine_bold = true,
 				}
 			)
+			vim.cmd("colorscheme tokyonight")
 		end
 	},
 	{
