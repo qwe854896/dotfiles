@@ -1,6 +1,6 @@
 return {
 	"windwp/nvim-ts-autotag",
-	"HiPhish/rainbow-delimiters.nvim",
+	-- "HiPhish/rainbow-delimiters.nvim",
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",

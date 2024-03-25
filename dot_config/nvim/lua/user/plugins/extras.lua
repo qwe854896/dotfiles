@@ -1,5 +1,6 @@
 return {
 	"github/copilot.vim",
+	"RRethy/vim-illuminate",
 	"ThePrimeagen/vim-be-good",
 	{
 		'ojroques/nvim-osc52',
@@ -23,4 +24,33 @@ return {
 			-- add other options here if needed.
 		end,
 	},
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require('neoscroll').setup {
+				easing_function = "quadratic",
+			}
+			local keyset = vim.keymap.set
+			keyset("n", "n", "n:lua require('neoscroll').zz(300)<CR>", { silent = true })
+			keyset("n", "N", "N:lua require('neoscroll').zz(300)<CR>", { silent = true })
+		end
+	},
+	{
+		"LunarVim/bigfile.nvim",
+		config = function()
+			require('bigfile').setup {
+				filesize = 2,
+				pattern = { "*" },
+				features = {
+					"treesitter",
+					"illuminate",
+					"indent_blankline",
+					"syntax",
+					"filetype",
+					"vimopts",
+					"matchparen",
+				}
+			}
+		end
+	}
 }
