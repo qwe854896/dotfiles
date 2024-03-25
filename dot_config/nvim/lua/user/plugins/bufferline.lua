@@ -19,6 +19,7 @@ M.config = function()
 			separator_style = "slant",
 			always_show_bufferline = true,
 			color_icons = true,
+			show_tab_indicators = true,
 		},
 	}
 
@@ -41,13 +42,15 @@ M.config = function()
 		end
 	end
 
+	local keyset = vim.keymap.set
+
 	-- switch through visible buffers with shift-l/h
-	vim.api.nvim_set_keymap("n", "<S-l>", "<CMD>lua ChangeTab('next')<CR>", {})
-	vim.api.nvim_set_keymap("n", "<S-h>", "<CMD>lua ChangeTab('prev')<CR>", {})
+	keyset("n", "<S-l>", "<CMD>lua ChangeTab('next')<CR>", {})
+	keyset("n", "<S-h>", "<CMD>lua ChangeTab('prev')<CR>", {})
 
 	-- switch through pressing <leader><ordinal>
 	for i = 1, 9 do
-		vim.api.nvim_set_keymap("n", "<leader>" .. i, "<CMD> lua require(\"bufferline\").go_to_buffer(" .. i .. ", true)<CR>",
+		keyset("n", "<leader>" .. i, "<CMD> lua require(\"bufferline\").go_to_buffer(" .. i .. ", true)<CR>",
 			{ silent = true })
 	end
 end

@@ -19,29 +19,4 @@ return {
 			vim.cmd("colorscheme tokyonight")
 		end
 	},
-	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = {
-			'nvim-treesitter/nvim-treesitter',
-			'nvim-tree/nvim-web-devicons',
-		},
-		config = function()
-			require('lualine').setup {
-				options = {
-					icons_enabled = true,
-					theme = 'tokyonight',
-					section_separators = { '', '' },
-					component_separators = { '', '' },
-				},
-				sections = {
-					lualine_a = { 'mode' },
-					lualine_b = { 'branch', 'diff', 'diagnostics' },
-					lualine_c = { 'filename', 'require("nvim-treesitter").statusline()' },
-					lualine_x = { 'encoding', 'fileformat', 'filetype' },
-					lualine_y = { 'progress' },
-					lualine_z = { 'location' },
-				},
-			}
-		end
-	},
 }
