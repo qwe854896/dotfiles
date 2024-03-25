@@ -2,6 +2,7 @@ return {
 	"github/copilot.vim",
 	"RRethy/vim-illuminate",
 	"ThePrimeagen/vim-be-good",
+	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
 		'ojroques/nvim-osc52',
 		config = function()

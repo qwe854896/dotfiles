@@ -33,11 +33,14 @@ return {
 	},
 	{
 		'numToStr/Comment.nvim',
-		opts = {
-			-- add any options here
-		},
 		lazy = false,
-		config = true,
+		config = function()
+			require('Comment').setup {
+				pre_hook = function()
+					return vim.bo.commentstring
+				end,
+			}
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
