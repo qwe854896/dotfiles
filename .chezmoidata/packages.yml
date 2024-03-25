@@ -27,6 +27,7 @@ packages:
     - 'fswatch'
     - 'fd-find'
     - 'xclip'
+    - 'bear'
     snaps:
   darwin:
     brews:
@@ -36,6 +37,7 @@ packages:
     - 'ripgrep'
     - 'fswatch'
     - 'fd'
+    - 'bear'
     casks:
     - 'xquartz'
   windows:
