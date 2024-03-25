@@ -37,4 +37,9 @@ return {
 			keyset("n", "<leader>fh", "<CMD>lua require('telescope.builtin').help_tags()<CR>", { silent = true })
 		end,
 	},
+	{
+		'nvim-telescope/telescope-fzf-native.nvim',
+		build =
+		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+	},
 }

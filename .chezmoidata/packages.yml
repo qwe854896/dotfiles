@@ -28,6 +28,7 @@ packages:
     - 'fd-find'
     - 'xclip'
     - 'bear'
+    - 'cmake'
     snaps:
   darwin:
     brews:
@@ -38,11 +39,13 @@ packages:
     - 'fswatch'
     - 'fd'
     - 'bear'
+    - 'cmake'
     casks:
     - 'xquartz'
   windows:
     wingets:
     - 'CoreyButler.NVMforWindows'
+    - 'Kitware.CMake'
     chocos:
     - 'llvm'
     buckets:
