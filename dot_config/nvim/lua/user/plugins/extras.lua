@@ -53,5 +53,16 @@ return {
 				}
 			}
 		end
+	},
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require('project_nvim').setup {
+			}
+			require('telescope').load_extension('projects')
+
+			local keyset = vim.keymap.set
+			keyset("n", "<leader>fp", "<CMD>lua require('telescope').extensions.projects.projects{}<CR>", { silent = true })
+		end
 	}
 }
