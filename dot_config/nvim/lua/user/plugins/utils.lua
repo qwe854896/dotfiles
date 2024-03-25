@@ -3,6 +3,7 @@ return {
 	"ThePrimeagen/vim-be-good",
 	"windwp/nvim-ts-autotag",
 	"HiPhish/rainbow-delimiters.nvim",
+	"sitiom/nvim-numbertoggle",
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -65,5 +66,10 @@ return {
 		-- has to be loaded on startup. Otherwise, the interactive feature of the `Subs` will only be
 		-- available after the first executing of it or after a keymap of text-case.nvim has been used.
 		lazy = false,
+	},
+	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		config = true
 	},
 }
