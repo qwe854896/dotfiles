@@ -18,10 +18,11 @@ vim.g.mapleader = " "         -- Set the mapleader to a space character
 vim.g.maplocalleader = "\\"   -- Set the maplocalleader to a backslash character
 
 require('lazy').setup('user.plugins')
-require('user.keymaps')
 
 if vim.g.vscode then
 	require('user.vscode')
+else
+	require('user.keymaps')
 end
 
 {{- if eq .chezmoi.os "windows" }}
