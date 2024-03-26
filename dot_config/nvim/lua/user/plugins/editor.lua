@@ -1,4 +1,5 @@
 return {
+	"RRethy/vim-illuminate",
 	"windwp/nvim-ts-autotag",
 	-- "HiPhish/rainbow-delimiters.nvim",
 	{
@@ -59,6 +60,7 @@ return {
 		end
 	},
 	{
+		-- This plugin is considered to be removed in the future
 		"johmsalas/text-case.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()

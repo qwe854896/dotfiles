@@ -6,6 +6,10 @@ local M = {
 }
 
 M.config = function()
+	-- Always show the signcolumn, otherwise it would shift the text each time
+	-- diagnostics appeared/became resolved
+	vim.opt.signcolumn = "yes"
+
 	local lspconfig = require('lspconfig')
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -14,6 +18,7 @@ M.config = function()
 		capabilities = capabilities,
 		on_init = function(client)
 			local path = client.workspace_folders[1].name
+			---@diagnostic disable-next-line: undefined-field
 			if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
 				return
 			end

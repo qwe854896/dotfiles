@@ -1,5 +1,4 @@
 return {
-	"RRethy/vim-illuminate",
 	"ThePrimeagen/vim-be-good",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
@@ -30,10 +29,36 @@ return {
 		config = function()
 			require('neoscroll').setup {
 				easing_function = "quadratic",
+				pre_hook = function(info)
+					if info == "cursorline" then
+						vim.wo.cursorline = false
+						if vim.fn.line("w$") - vim.fn.line("w0") < (vim.fn.line('$') - vim.fn.line('.')) * 2 then
+							vim.cmd("norm! zz")
+						end
+					end
+				end,
+				post_hook = function(info)
+					if info == "cursorline" then
+						if vim.fn.line("w$") - vim.fn.line("w0") < vim.fn.line('.') * 2 then
+							vim.cmd("norm! zz")
+						end
+						vim.wo.cursorline = true
+					end
+				end,
 			}
 			local keyset = vim.keymap.set
 			keyset("n", "n", "n:lua require('neoscroll').zz(300)<CR>", { silent = true })
 			keyset("n", "N", "N:lua require('neoscroll').zz(300)<CR>", { silent = true })
+
+			local t    = {}
+			local e    = [['cursorline']]
+
+			t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '350', 'sine', e } }
+			t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '350', 'sine', e } }
+			t['gg']    = { 'scroll', { '-2*vim.api.nvim_buf_line_count(0)', 'true', '1', '5', e } }
+			t['G']     = { 'scroll', { '2*vim.api.nvim_buf_line_count(0)', 'true', '1', '5', e } }
+
+			require('neoscroll.config').set_mappings(t)
 		end
 	},
 	{
