@@ -20,7 +20,7 @@ return {
 				sync_install = false,
 				highlight = {
 					enable = true,
-					disable = function(lang, buf)
+					disable = function()
 						-- check if 'filetype' option includes 'chezmoitmpl'
 						if string.find(vim.bo.filetype, 'chezmoitmpl') then
 							return true
