@@ -78,8 +78,8 @@ return {
 				options = {
 					icons_enabled = true,
 					theme = 'vscode',
-					component_separators = { ' ', ' ' },
-					section_separators = { ' ', ' ' },
+					section_separators = '',
+					component_separators = '',
 				},
 				sections = {
 					lualine_a = { 'mode' },
