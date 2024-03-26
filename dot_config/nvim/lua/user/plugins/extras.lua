@@ -64,5 +64,5 @@ return {
 			local keyset = vim.keymap.set
 			keyset("n", "<leader>fp", "<CMD>lua require('telescope').extensions.projects.projects{}<CR>", { silent = true })
 		end
-	}
+	},
 }

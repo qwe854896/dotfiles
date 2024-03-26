@@ -29,6 +29,10 @@ M.config = function()
 			right_trunc_marker = "",
 			show_close_icon = false,
 			show_tab_indicators = true,
+			diagnostics_indicator = function(count, level, diagnostics_dict, context)
+				local icon = level:match("error") and " " or " "
+				return " " .. icon .. count
+			end,
 		},
 		highlights = {
 			fill = {
@@ -73,7 +77,6 @@ M.config = function()
 			},
 		},
 	}
-
 	-- since we open empty splits - clean them up as we cycle through open buffers
 	function ChangeTab(motion)
 		local last_buffer_id = vim.fn.bufnr()
