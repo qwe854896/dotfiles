@@ -112,8 +112,9 @@ M.config = function()
 	})
 
 	-- Set up lspconfig.
+	local lspconfig = require('lspconfig')
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
-	require('lspconfig').lua_ls.setup {
+	lspconfig.lua_ls.setup {
 		capabilities = capabilities,
 		settings = {
 			Lua = {
@@ -127,6 +128,9 @@ M.config = function()
 				}
 			}
 		}
+	}
+	lspconfig.clangd.setup {
+		capabilities = capabilities,
 	}
 end
 
