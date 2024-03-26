@@ -16,8 +16,9 @@ return {
 				},
 				lualine_bold = true,
 			}
-			-- vim.cmd("colorscheme tokyonight")
-		end
+			vim.cmd("colorscheme tokyonight")
+		end,
+		enabled = false,
 	},
 	{
 		"Mofiqul/vscode.nvim",

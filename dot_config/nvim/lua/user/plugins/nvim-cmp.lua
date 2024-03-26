@@ -3,10 +3,11 @@ local M = {
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		"onsails/lspkind.nvim",
+		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-emoji",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"zbirenbaum/copilot-cmp",
@@ -52,12 +53,13 @@ M.config = function()
 			{ name = 'nvim_lsp' },
 			{ name = 'luasnip' }, -- For luasnip users.
 			{ name = 'copilot' },
+			{ name = 'emoji' },
 		}, {
 			{ name = 'buffer' },
 		}),
 		formatting = {
 			format = lspkind.cmp_format({
-				mode = "symbol",
+				mode = "symbol_text",
 				max_width = 50,
 				symbol_map = { Copilot = "" }
 			})

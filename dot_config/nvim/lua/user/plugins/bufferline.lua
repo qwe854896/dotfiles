@@ -10,7 +10,7 @@ M.config = function()
 	vim.opt.termguicolors = true
 	require('bufferline').setup {
 		options = {
-			diagnostics = "coc",
+			diagnostics = "nvim_lsp",
 			-- separator_style = "slant",
 			always_show_bufferline = true,
 			color_icons = true,

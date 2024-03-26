@@ -12,37 +12,57 @@ M.config = function()
 	-- Setup servers
 	lspconfig.lua_ls.setup {
 		capabilities = capabilities,
-		settings = {
-			Lua = {
+		on_init = function(client)
+			local path = client.workspace_folders[1].name
+			if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+				return
+			end
+
+			client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
 				runtime = {
-					-- LuaJIT in the case of Neovim
-					version = 'LuaJIT',
-					path = vim.split(package.path, ';')
+					version = 'LuaJIT'
 				},
-				diagnostics = {
-					globals = { 'vim' }
+				workspace = {
+					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME
+						-- Depending on the usage, you might want to add additional paths here.
+						-- "${3rd}/luv/library"
+						-- "${3rd}/busted/library",
+					}
 				}
-			}
-		},
-		on_attach = function(client)
-			client.server_capabilities.semanticTokensProvider = nil
-		end
+			})
+		end,
+		settings = {
+			Lua = {}
+		}
 	}
+
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
 		cmd = {
 			"clangd",
 			"--offset-encoding=utf-16",
 		},
-		on_attach = function(client)
-			client.server_capabilities.semanticTokensProvider = nil
-		end
 	}
+
 	lspconfig.pyright.setup {
 		capabilities = capabilities,
-		on_attach = function(client)
-			client.server_capabilities.semanticTokensProvider = nil
-		end
+	}
+
+	lspconfig.yamlls.setup {
+		capabilities = capabilities,
+		settings = {
+			yaml = {
+				schemas = {
+					['http://json.schemastore.org/github-workflow.json'] = "/.github/workflows/*",
+				}
+			}
+		}
+	}
+
+	lspconfig.marksman.setup {
+		capabilities = capabilities,
 	}
 
 	-- Global mappings

@@ -11,6 +11,7 @@ packages:
     - 'yarn'
     - 'tree-sitter-cli'
     - 'pyright'
+    - 'yaml-language-server'
   ubuntu:
     repositories:
     - 'ppa:git-core/ppa'
@@ -33,6 +34,7 @@ packages:
     brews:
     - 'lua-language-server'
     - 'llvm'
+    - 'marksman'
   darwin:
     brews:
     - 'tmux'
@@ -44,6 +46,7 @@ packages:
     - 'bear'
     - 'cmake'
     - 'lua-language-server'
+    - 'marksman'
     casks:
     - 'xquartz'
   windows:
