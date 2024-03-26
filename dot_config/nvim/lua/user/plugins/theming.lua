@@ -1,3 +1,12 @@
+local hide_semantic_highlights = function()
+	-- Hide semantic highlights for functions
+	vim.api.nvim_set_hl(0, '@lsp.type.function', {})
+	-- Hide all semantic highlights
+	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+		vim.api.nvim_set_hl(0, group, {})
+	end
+end
+
 return {
 	{
 		"folke/tokyonight.nvim",
@@ -17,6 +26,8 @@ return {
 				lualine_bold = true,
 			}
 			vim.cmd("colorscheme tokyonight")
+
+			hide_semantic_highlights()
 		end,
 		enabled = false,
 	},
@@ -33,12 +44,7 @@ return {
 			}
 			vim.cmd("colorscheme vscode")
 
-			-- Hide semantic highlights for functions
-			vim.api.nvim_set_hl(0, '@lsp.type.function', {})
-			-- Hide all semantic highlights
-			for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-				vim.api.nvim_set_hl(0, group, {})
-			end
-		end
+			hide_semantic_highlights()
+		end,
 	}
 }
