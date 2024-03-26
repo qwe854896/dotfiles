@@ -23,7 +23,10 @@ M.config = function()
 					globals = { 'vim' }
 				}
 			}
-		}
+		},
+		on_attach = function(client)
+			client.server_capabilities.semanticTokensProvider = nil
+		end
 	}
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
@@ -31,9 +34,15 @@ M.config = function()
 			"clangd",
 			"--offset-encoding=utf-16",
 		},
+		on_attach = function(client)
+			client.server_capabilities.semanticTokensProvider = nil
+		end
 	}
 	lspconfig.pyright.setup {
 		capabilities = capabilities,
+		on_attach = function(client)
+			client.server_capabilities.semanticTokensProvider = nil
+		end
 	}
 
 	-- Global mappings
