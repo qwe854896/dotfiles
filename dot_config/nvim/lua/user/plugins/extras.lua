@@ -23,6 +23,7 @@ return {
 			vim.g['chezmoi#use_tmp_buffer'] = true
 			-- add other options here if needed.
 		end,
+		enabled = false,
 	},
 	{
 		"karb94/neoscroll.nvim",
