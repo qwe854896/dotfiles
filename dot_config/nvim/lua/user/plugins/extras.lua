@@ -39,7 +39,7 @@ return {
 		"LunarVim/bigfile.nvim",
 		config = function()
 			require('bigfile').setup {
-				filesize = 2,
+				filesize = 2 * 1024 * 1024,
 				pattern = { "*" },
 				features = {
 					"treesitter",
@@ -51,7 +51,7 @@ return {
 					"matchparen",
 				}
 			}
-		end
+		end,
 	},
 	{
 		"ahmedkhalf/project.nvim",
