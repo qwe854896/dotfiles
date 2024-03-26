@@ -40,6 +40,7 @@ packages:
     - 'fd'
     - 'bear'
     - 'cmake'
+    - 'lua-language-server'
     casks:
     - 'xquartz'
   windows:
