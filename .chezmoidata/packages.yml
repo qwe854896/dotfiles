@@ -10,6 +10,7 @@ packages:
     - 'neovim'
     - 'yarn'
     - 'tree-sitter-cli'
+    - 'pyright'
   ubuntu:
     repositories:
     - 'ppa:git-core/ppa'
@@ -31,6 +32,7 @@ packages:
     snaps:
     brews:
     - 'lua-language-server'
+    - 'llvm'
   darwin:
     brews:
     - 'tmux'

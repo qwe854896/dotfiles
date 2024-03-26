@@ -4,7 +4,6 @@ local M = {
 		"neovim/nvim-lspconfig",
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
@@ -110,28 +109,6 @@ M.config = function()
 		}),
 		matching = { disallow_symbol_nonprefix_matching = false }
 	})
-
-	-- Set up lspconfig.
-	local lspconfig = require('lspconfig')
-	local capabilities = require('cmp_nvim_lsp').default_capabilities()
-	lspconfig.lua_ls.setup {
-		capabilities = capabilities,
-		settings = {
-			Lua = {
-				runtime = {
-					-- LuaJIT in the case of Neovim
-					version = 'LuaJIT',
-					path = vim.split(package.path, ';')
-				},
-				diagnostics = {
-					globals = { 'vim' }
-				}
-			}
-		}
-	}
-	lspconfig.clangd.setup {
-		capabilities = capabilities,
-	}
 end
 
 return M

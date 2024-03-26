@@ -69,11 +69,7 @@ done
 
 for brew in ${brews[@]}; do
 	echo "installing $brew using brew"
-{{ if ne .chezmoi.username "root" }}
-	sudo /home/linuxbrew/.linuxbrew/bin/brew install $brew
-{{ else }}
 	/home/linuxbrew/.linuxbrew/bin/brew install $brew
-{{ end }}
 done
 
 echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"

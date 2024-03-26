@@ -18,4 +18,4 @@ vim.keymap.set("n", "<leader>h", "<C-w>s")
 vim.keymap.set("n", "<leader>v", "<C-w>v")
 
 -- Close buffer
-vim.keymap.set("n", "<leader>w", ":bp|bd#<CR>")
+vim.keymap.set("n", "<leader>ww", ":bp|bd#<CR>")
