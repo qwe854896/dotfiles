@@ -70,9 +70,9 @@ done
 for brew in ${brews[@]}; do
 	echo "installing $brew using brew"
 {{ if ne .chezmoi.username "root" }}
-	sudo brew install $brew
+	sudo /home/linuxbrew/.linuxbrew/bin/brew install $brew
 {{ else }}
-	brew install $brew
+	/home/linuxbrew/.linuxbrew/bin/brew install $brew
 {{ end }}
 done
 
