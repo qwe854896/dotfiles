@@ -9,6 +9,7 @@ echo -e "\033[0;32m>>>>> Begin Setting Up Ubuntu Packages <<<<<\033[0m"
 repositories=()
 packages=()
 snaps=()
+brews=()
 
 {{ range .packages.ubuntu.repositories -}}
 repositories+=({{ . | quote }})
@@ -18,6 +19,9 @@ packages+=({{ . | quote }})
 {{ end }}
 {{ range .packages.ubuntu.snaps -}}
 snaps+=({{ . | quote }})
+{{ end }}
+{{ range .packages.ubuntu.brews -}}
+brews+=({{ . | quote }})
 {{ end }}
 
 for repository in ${repositories[@]}; do
@@ -59,6 +63,18 @@ for snap in ${snaps[@]}; do
 {{   end }}
 done
 {{ end -}}
+
+# Add Homebrew to PATH
+(eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv))
+
+for brew in ${brews[@]}; do
+	echo "installing $brew using brew"
+{{ if ne .chezmoi.username "root" }}
+	brew install $brew
+{{ else }}
+	sudo brew install $brew
+{{ end }}
+done
 
 echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"
 {{ end -}}

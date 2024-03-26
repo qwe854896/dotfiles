@@ -3,3 +3,8 @@ if status is-interactive
 end
 
 alias chezmoi-check="chezmoi git pull -- --autostash --rebase && chezmoi diff"
+
+{{ if .chezmoi.os == "linux" -}}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end }}
+

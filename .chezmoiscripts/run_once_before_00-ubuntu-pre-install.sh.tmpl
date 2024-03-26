@@ -44,6 +44,8 @@ locale-gen en_US.UTF-8
 update-locale LANG=en_US.UTF-8
 {{ end -}}
 
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo -e "\033[0;32m>>>>> Finish Pre-Install Ubuntu Packages <<<<<\033[0m"
 {{ end -}}

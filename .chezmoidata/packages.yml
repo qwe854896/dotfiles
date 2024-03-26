@@ -26,10 +26,11 @@ packages:
     - 'ripgrep'
     - 'fswatch'
     - 'fd-find'
-    - 'xclip'
     - 'bear'
     - 'cmake'
     snaps:
+    brews:
+    - 'lua-language-server'
   darwin:
     brews:
     - 'tmux'
