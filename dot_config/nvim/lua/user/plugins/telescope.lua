@@ -27,6 +27,9 @@ return {
               ["<esc>"] = require('telescope.actions').close,
             },
           },
+          preview = {
+            treesitter = false,
+          },
         },
         extensions = {
           fzf = {
