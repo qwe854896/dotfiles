@@ -1,6 +1,7 @@
 return {
   "RRethy/vim-illuminate",
   "windwp/nvim-ts-autotag",
+  "JoosepAlviste/nvim-ts-context-commentstring",
   -- "HiPhish/rainbow-delimiters.nvim",
   {
     "lukas-reineke/indent-blankline.nvim",

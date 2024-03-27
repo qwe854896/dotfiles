@@ -1,6 +1,5 @@
 return {
   "ThePrimeagen/vim-be-good",
-  "JoosepAlviste/nvim-ts-context-commentstring",
   {
     'ojroques/nvim-osc52',
     config = function()
@@ -57,16 +56,17 @@ return {
     "LunarVim/bigfile.nvim",
     config = function()
       require('bigfile').setup {
-        filesize = 2 * 1024 * 1024,
+        filesize = 2,
         pattern = { "*" },
         features = {
-          -- "treesitter",
-          -- "illuminate",
-          -- "indent_blankline",
-          -- "syntax",
-          "filetype",
-          "vimopts",
           "matchparen",
+          "indent_blankline",
+          "vimopts",
+          "syntax",
+          "filetype",
+          "illuminate",
+          "treesitter",
+          "lsp",
         }
       }
     end,

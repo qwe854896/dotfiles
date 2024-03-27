@@ -19,12 +19,8 @@ vim.g.mapleader = " "       -- Set the mapleader to a space character
 vim.g.maplocalleader = "\\" -- Set the maplocalleader to a backslash character
 
 require('lazy').setup('user.plugins')
-
-if vim.g.vscode then
-  require('user.vscode')
-else
-  require('user.keymaps')
-end
+require('user.keymaps')
+require('user.indent')
 
 {{ if eq .chezmoi.os "windows" -}}
 vim.opt.shell = "pwsh"
@@ -32,4 +28,3 @@ vim.opt.shell = "pwsh"
 vim.opt.shell = "fish"
 {{ end}}
 
-require('user.indent')

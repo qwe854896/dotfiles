@@ -1,21 +1,23 @@
+local keyset = vim.keymap.set
+
 -- Fast escape from insert mode
-vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+keyset("i", "jj", "<ESC>", { silent = true })
 
 -- Move pages and center the cursor
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
--- vim.keymap.set("n", "n", "nzzzv")
--- vim.keymap.set("n", "N", "Nzzzv")
+-- keyset("n", "<C-d>", "<C-d>zz")
+-- keyset("n", "<C-u>", "<C-u>zz")
+-- keyset("n", "n", "nzzzv")
+-- keyset("n", "N", "Nzzzv")
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+keyset("n", "<C-h>", "<C-w>h")
+keyset("n", "<C-j>", "<C-w>j")
+keyset("n", "<C-k>", "<C-w>k")
+keyset("n", "<C-l>", "<C-w>l")
 
 -- Split and Vsplit
-vim.keymap.set("n", "<leader>h", "<C-w>s")
-vim.keymap.set("n", "<leader>v", "<C-w>v")
+keyset("n", "<leader>h", "<C-w>s")
+keyset("n", "<leader>v", "<C-w>v")
 
 -- Close buffer
-vim.keymap.set("n", "<leader>bd", ":bp|bd#<CR>")
+keyset("n", "<leader>bd", ":bp|bd#<CR>")

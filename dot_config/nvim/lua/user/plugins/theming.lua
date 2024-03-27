@@ -36,6 +36,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      ---@diagnostic disable-next-line: different-requires
       require("vscode").setup {
         transparent = true,
         italic_comments = false,
