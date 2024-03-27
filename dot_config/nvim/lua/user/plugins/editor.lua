@@ -49,6 +49,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter"
     },
+    enabled = false,
   },
   {
     "kylechui/nvim-surround",
