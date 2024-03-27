@@ -32,12 +32,4 @@ vim.opt.shell = "pwsh"
 vim.opt.shell = "fish"
 {{ end}}
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		-- use 2 spaces for indentation
-		vim.bo.shiftwidth = 2
-		vim.bo.tabstop = 2
-		vim.bo.softtabstop = 2
-	end,
-})
+require('user.indent')
