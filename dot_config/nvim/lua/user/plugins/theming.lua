@@ -29,7 +29,6 @@ return {
 
       hide_semantic_highlights()
     end,
-    enabled = false,
   },
   {
     "Mofiqul/vscode.nvim",
@@ -47,5 +46,6 @@ return {
 
       hide_semantic_highlights()
     end,
+    enabled = false,
   }
 }

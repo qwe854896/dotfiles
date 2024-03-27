@@ -92,8 +92,8 @@ M.config = function()
   require('lualine').setup {
     options = {
       icons_enabled = true,
-      -- theme = 'tokyonight',
-      theme = 'vscode',
+      theme = 'tokyonight',
+      -- theme = 'vscode',
       section_separators = '',
       component_separators = '',
     },
