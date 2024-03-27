@@ -28,7 +28,7 @@ M.config = function()
         {
           filetype = "NvimTree",
           text = function()
-            return vim.fn.getcwd()
+            return "EXPLORER"
           end,
           highlight = "Directory",
           text_align = "left",
