@@ -9,7 +9,14 @@ local function mixed_indent()
 		mixed_same_line = vim.fn.search([[\v^(\t+ | +\t)]], 'nwc')
 		mixed = mixed_same_line > 0
 	end
-	if not mixed then return '' end
+	-- Return "Tab" or "Spaces: <count>"
+	if not mixed then
+		if tab_indent > 0 then
+			return 'Tab'
+		else
+			return 'Spaces: ' .. '?'
+		end
+	end
 	if mixed_same_line ~= nil and mixed_same_line > 0 then
 		return 'MI:' .. mixed_same_line
 	end
@@ -47,6 +54,7 @@ return {
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
+			'nvim-lua/lsp-status.nvim',
 			'nvim-treesitter/nvim-treesitter',
 			'nvim-tree/nvim-web-devicons',
 		},
