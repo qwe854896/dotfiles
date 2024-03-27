@@ -22,7 +22,7 @@ local function mixed_indent()
     if tab_indent > 0 then
       return 'Tab'
     else
-      return 'Spaces: ' .. '?'
+      return 'Spaces: ' .. vim.opt.tabstop:get()
     end
   end
   if mixed_same_line ~= nil and mixed_same_line > 0 then

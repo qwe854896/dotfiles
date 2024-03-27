@@ -89,7 +89,7 @@ return {
     lazy = false,
     config = function()
       require("guess-indent").setup {
-        auto_cmd = false,
+        auto_cmd = true,
       }
     end,
   }
