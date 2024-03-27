@@ -52,7 +52,7 @@ M.config = function()
       end),
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp', keyword_length = 6, group_index = 1, max_item_count = 30 },
+      { name = 'nvim_lsp', group_index = 1, max_item_count = 30 },
       { name = 'luasnip' }, -- For luasnip users.
       { name = 'path' },
       { name = 'copilot' },
