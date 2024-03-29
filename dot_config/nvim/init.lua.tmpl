@@ -13,7 +13,7 @@ if not vim.loop.fs_stat(lazypath) then -- Check if the lazypath file exists
 end
 vim.opt.rtp:prepend(lazypath) -- Prepend the lazypath to the runtimepath option
 
-vim.opt.updatetime = 100
+vim.opt.updatetime = 300 -- Set the updatetime option to 300 milliseconds
 
 vim.g.mapleader = " "       -- Set the mapleader to a space character
 vim.g.maplocalleader = "\\" -- Set the maplocalleader to a backslash character
