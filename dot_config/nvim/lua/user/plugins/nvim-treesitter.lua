@@ -14,7 +14,8 @@ return {
           "elixir",
           "heex",
           "javascript",
-          "html"
+          "html",
+          "css",
         },
         auto_install = true,
         sync_install = false,

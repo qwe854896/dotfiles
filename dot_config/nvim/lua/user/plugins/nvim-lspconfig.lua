@@ -2,7 +2,7 @@ local M = {
   "neovim/nvim-lspconfig",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-  }
+  },
 }
 
 M.config = function()
@@ -30,9 +30,9 @@ M.config = function()
         workspace = {
           checkThirdParty = false,
           library = {
-            vim.env.VIMRUNTIME
+            vim.env.VIMRUNTIME,
             -- Depending on the usage, you might want to add additional paths here.
-            -- "${3rd}/luv/library"
+            -- "${3rd}/luv/library",
             -- "${3rd}/busted/library",
           }
         }

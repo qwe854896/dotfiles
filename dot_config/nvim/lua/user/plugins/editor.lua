@@ -1,14 +1,22 @@
 return {
   "RRethy/vim-illuminate",
   "windwp/nvim-ts-autotag",
-  "JoosepAlviste/nvim-ts-context-commentstring",
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+      require('ts_context_commentstring').setup {
+        enable_autocmd = false,
+      }
+    end,
+  },
   -- "HiPhish/rainbow-delimiters.nvim",
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
     config = function()
-      require("ibl").setup({})
+      require("ibl").setup {}
     end,
   },
   {
@@ -29,18 +37,27 @@ return {
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    config = true,
+    config = function ()
+      require('nvim-autopairs').setup {}
+      require('cmp').event:on(
+        'confirm_done',
+        require('nvim-autopairs.completion.cmp').on_confirm_done()
+      )
+    end,
     -- use opts = {} for passing setup options
     -- this is equalent to setup({}) function
   },
   {
     'numToStr/Comment.nvim',
-    lazy = false,
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     config = function()
       require('Comment').setup {
-        pre_hook = function()
-          return vim.bo.commentstring
-        end,
+        -- pre_hook = function()
+        --   return vim.bo.commentstring
+        -- end,
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
       }
     end,
   },
@@ -49,11 +66,10 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter"
     },
-    enabled = false,
   },
   {
     "kylechui/nvim-surround",
-    version = "*",   -- Use for stability; omit to use `main` branch for the latest features
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
@@ -66,11 +82,11 @@ return {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
-      require("textcase").setup({})
+      require("textcase").setup {}
       require("telescope").load_extension("textcase")
     end,
     keys = {
-      "ga",    -- Default invocation prefix
+      "ga", -- Default invocation prefix
       { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
     },
     cmd = {

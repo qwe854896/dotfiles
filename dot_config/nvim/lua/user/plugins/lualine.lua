@@ -7,10 +7,6 @@ local M = {
 }
 
 local function mixed_indent()
-  if vim.fn.line('$') > 2000 then
-    return ''
-  end
-
   local space_pat = [[\v^ +]]
   local tab_pat = [[\v^\t+]]
   local space_indent = vim.fn.search(space_pat, 'nwc')

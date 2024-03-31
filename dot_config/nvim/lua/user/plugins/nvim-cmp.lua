@@ -7,11 +7,12 @@ local M = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    -- "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-emoji",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "zbirenbaum/copilot-cmp",
   },
+  event = { "InsertEnter", "CmdlineEnter" },
 }
 
 M.config = function()
@@ -42,10 +43,17 @@ M.config = function()
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ["<Tab>"] = vim.schedule_wrap(function(fallback)
         if cmp.visible() and has_words_before() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          fallback()
+        end
+      end),
+      ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
         end
@@ -56,7 +64,7 @@ M.config = function()
       { name = 'luasnip' }, -- For luasnip users.
       { name = 'path' },
       { name = 'copilot' },
-      -- { name = 'emoji' },
+      { name = 'emoji' },
     }, {
       { name = 'buffer' },
     }),
