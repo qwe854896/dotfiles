@@ -15,6 +15,12 @@ keyset("n", "<C-j>", "<C-w>j")
 keyset("n", "<C-k>", "<C-w>k")
 keyset("n", "<C-l>", "<C-w>l")
 
+-- Resize windows
+keyset("n", "<C-Up>", ":resize +2<CR>")
+keyset("n", "<C-Down>", ":resize -2<CR>")
+keyset("n", "<C-Left>", ":vertical resize +2<CR>")
+keyset("n", "<C-Right>", ":vertical resize -2<CR>")
+
 -- Split and Vsplit
 keyset("n", "<leader>h", "<C-w>s")
 keyset("n", "<leader>v", "<C-w>v")
