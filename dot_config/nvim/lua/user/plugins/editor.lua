@@ -1,5 +1,20 @@
 return {
-  "RRethy/vim-illuminate",
+  {
+    "RRethy/vim-illuminate",
+    config = function()
+      require('illuminate').configure(
+        {
+          filetypes_denylist = {
+            'dirbuf',
+            'dirvish',
+            'fugitive',
+            'NvimTree',
+            'toggleterm',
+          }
+        }
+      )
+    end,
+  },
   "windwp/nvim-ts-autotag",
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
@@ -37,7 +52,7 @@ return {
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require('nvim-autopairs').setup {}
       require('cmp').event:on(
         'confirm_done',
